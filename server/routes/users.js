@@ -23,7 +23,7 @@ router.post('/crear',
         UsuarioDB.create({
         "Nombre":req.body.Nombre,
         "Apellido":req.body.Apellido,
-        "Correo":req.body.Correo,
+        "Correo":req.body.Correo.toLowerCase(),
         "Password":hashedPassword
       },(err,doc)=>{
         if(err)
@@ -41,7 +41,7 @@ router.post('/login',
     (req,res)=>{
        console.log(req.body.Correo)
         UsuarioDB.find({
-            "Correo":req.body.Correo
+            "Correo":req.body.Correo.toLowerCase()
         },(err,doc)=>{
             console.log(doc.length)
             if(err)
@@ -58,7 +58,7 @@ router.post('/login',
                         return res.send({token:token})
 
                     }else{
-                        return  res.status(400).send({msg:"Contraseña Incorrecta"})
+                        return  res.status(401).send({msg:"Contraseña Incorrecta"})
                     }
                 })
 
