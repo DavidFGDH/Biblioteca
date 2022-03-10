@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import { useSelector,useDispatch } from 'react-redux'
-import {setClose} from '../features/counter/AlertSlice'
+import {setClose} from '../features/alert/AlertSlice'
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });

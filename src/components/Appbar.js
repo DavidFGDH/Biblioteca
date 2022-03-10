@@ -11,11 +11,25 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import UTS from "../uts.svg"
+import { useNavigate } from "react-router-dom";
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+
+const settings = ['Cerrar Sesión'];
+
+const Botones = [{
+    Nombre:'Libro',
+    URL:'/home'
+},
+    {
+        Nombre:'Crear',
+        URL:'/libro/crear'
+    }
+]
 
 const Appbar = () => {
+    let navigate = useNavigate();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -34,6 +48,7 @@ const Appbar = () => {
         setAnchorElUser(null);
     };
 
+
     return (
         <AppBar position="static">
             <Container>
@@ -44,7 +59,7 @@ const Appbar = () => {
                         component="div"
                         sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                     >
-                        LOGO
+                        <img src={UTS} style={{maxHeight:75}} alt=""/>
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -76,9 +91,9 @@ const Appbar = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                            {Botones.map((boton)=>(
+                                <MenuItem key={boton.Nombre} onClick={()=>{navigate(boton.URL)}}>
+                                    <Typography textAlign="center">{boton.Nombre}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -89,16 +104,17 @@ const Appbar = () => {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
-                        LOGO
+                        <img src={UTS} style={{maxHeight:60}} alt=""/>
+
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
+                        {Botones.map((boton)=>(
                             <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
+                                key={boton.Nombre}
+                                onClick={()=>{navigate(boton.URL)}}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                {page}
+                                {boton.Nombre}
                             </Button>
                         ))}
                     </Box>

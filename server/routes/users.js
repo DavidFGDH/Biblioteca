@@ -5,7 +5,7 @@ const {body} = require("express-validator");
 const bcrypt = require('bcryptjs');
 const RequestValid = require('../middleware/RequestValid')
 const jwt = require('jsonwebtoken');
-
+const config = require('../config')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -19,7 +19,7 @@ router.post('/crear',
     body('Password').isStrongPassword(),
     RequestValid,
     (req,res)=>{
-        let hashedPassword = bcrypt.hashSync(req.body.Password, 8)
+        let hashedPassword = bcrypt.hashSync(req.body.Password, 'JHRGOJIF2156F4AEGFREFUIDS.VD9V876MJDA')
         UsuarioDB.create({
         "Nombre":req.body.Nombre,
         "Apellido":req.body.Apellido,
@@ -39,7 +39,6 @@ router.post('/login',
     body('Password').isStrongPassword(),
     RequestValid,
     (req,res)=>{
-       console.log(req.body.Correo)
         UsuarioDB.find({
             "Correo":req.body.Correo.toLowerCase()
         },(err,doc)=>{
@@ -54,7 +53,7 @@ router.post('/login',
                     if(result){
                         const token =  jwt.sign({
                             "id":doc[0]._id
-                        },'cfsaujhfdauhdhvduhtr854bf54gbf54ht54')
+                        },config.secret)
                         return res.send({token:token})
 
                     }else{

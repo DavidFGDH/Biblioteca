@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from "axios";
 import { useDispatch } from 'react-redux'
-import {setText} from './../features/counter/AlertSlice'
+import {setText} from '../features/alert/AlertSlice'
 import { useNavigate } from 'react-router-dom';
 
 
@@ -38,7 +38,7 @@ export default function SignInSide() {
         if(localStorage.getItem('UTSbiblioteca')){
             navigate('/home')
         }
-    },[])
+    })
     const dispatch = useDispatch()
     const [Correo,SetCorreo] = React.useState("")
     const [Password,SetPassword] =React.useState("")
@@ -130,7 +130,9 @@ export default function SignInSide() {
                                 name="email"
                                 autoComplete="email"
                                 autoFocus
-                                onChange={(e)=>{SetCorreo(e.target.value)}}
+                                onChange={
+                                (e)=>
+                                {SetCorreo(e.target.value)}}
                             />
                             <TextField
                                 margin="normal"

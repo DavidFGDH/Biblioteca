@@ -5,8 +5,12 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const librosRouter = require('./routes/libros');
 
-var app = express();
+let app = express();
+const fileupload = require("express-fileupload");
+app.use(fileupload());
+
 require('./db')
 const cors = require('cors')
 app.use(cors())
@@ -18,5 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/usuarios', usersRouter);
+app.use('/libros',librosRouter)
 
 module.exports = app;

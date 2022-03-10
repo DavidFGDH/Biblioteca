@@ -12,7 +12,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from "axios";
 import { useDispatch } from 'react-redux'
-import {setText} from './../features/counter/AlertSlice'
+import {setText} from '../features/alert/AlertSlice'
 
 
 function Copyright(props) {
