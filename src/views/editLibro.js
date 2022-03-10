@@ -32,7 +32,7 @@ export default function FixedContainer() {
         const getLibroData = () =>{
             let config = {
                 method: 'get',
-                url: 'http://localhost:3001/libros/'+id,
+                url: 'http://74.208.33.241:81/libros/'+id,
                 headers: {
                     'Authorization': 'Bearer '+localStorage.getItem('UTSbiblioteca')
                 }
@@ -80,7 +80,7 @@ export default function FixedContainer() {
 
         let config = {
             method: 'put',
-            url: 'http://localhost:3001/libros/actualizar',
+            url: 'http://74.208.33.241:81/libros/actualizar',
             headers: {
                 'Authorization': 'Bearer '+localStorage.getItem('UTSbiblioteca'),
                 'Content-Type': 'application/json'

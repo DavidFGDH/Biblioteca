@@ -51,7 +51,7 @@ export default function SignInSide() {
 
         let config = {
             method: 'post',
-            url: 'http://localhost:3001/usuarios/login',
+            url: 'http://74.208.33.241:81/usuarios/login',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -119,6 +119,15 @@ export default function SignInSide() {
                         </Avatar>
                         <Typography component="h1" variant="h5">
                             Sign in
+                        </Typography>
+                        <Typography style={{textAlign: 'center'}}>
+                            Datos de inicio de sesion default
+                        </Typography>
+                        <Typography>
+                            Correo:ejemplo@gmail.com
+                        </Typography>
+                        <Typography>
+                            Password:Ejemplo.123
                         </Typography>
                         <Box component="form" noValidate sx={{ mt: 1 }}>
                             <TextField

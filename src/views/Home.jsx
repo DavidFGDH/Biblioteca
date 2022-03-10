@@ -15,7 +15,7 @@ export default function ResponsiveGrid() {
         const getLibros = () =>{
             let config = {
                 method: 'get',
-                url: 'http://localhost:3001/libros/todos',
+                url: 'http://74.208.33.241:81/libros/todos',
                 headers: {
                     'Authorization': 'Bearer '+localStorage.getItem('UTSbiblioteca')
                 }

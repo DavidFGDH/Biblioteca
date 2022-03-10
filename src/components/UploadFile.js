@@ -26,7 +26,7 @@ export default function MediaControlCard() {
         formData.append('Pdflibro', imgLibroSelected);
 
         fetch(
-            'http://localhost:3001/libros/pdf/'+idLibro,
+            'http://74.208.33.241:81/libros/pdf/'+idLibro,
             {
                 method: 'POST',
                 body: formData,

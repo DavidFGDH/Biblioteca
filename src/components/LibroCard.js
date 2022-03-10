@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 export default function MediaControlCard(props) {
     let navigate = useNavigate();
     const dispatch = useDispatch()
-    let path = "http://localhost:3001/libros/img/"+props.id
+    let path = "http://74.208.33.241:81/libros/img/"+props.id
 
     const idLibro = useSelector((state) => state.libro.idLibro)
     // eslint-disable-next-line no-unused-vars
@@ -28,7 +28,7 @@ export default function MediaControlCard(props) {
         formData.append('ImgLibro', imgLibroSelected);
 
         fetch(
-            'http://localhost:3001/libros/img/'+idLibro,
+            'http://74.208.33.241:81/libros/img/'+idLibro,
             {
                 method: 'POST',
                 body: formData,

@@ -15,15 +15,9 @@ import LibrosCrear from "./views/Libro"
 import ViewLibraries from "./views/libroview"
 import LibroEdit from "./views/editLibro"
 export default function App() {
-    const [token,SetToken] = React.useState(true)
-    React.useEffect(()=>{
-        SetToken(localStorage.getItem('UTSbiblioteca'))
-    },[])
     return (
     <BrowserRouter>
-        {token && (
             <Appbar/>
-        )}
         <Routes>
             <Route path="/" element={<Navigate to="/home"/>}  />
             <Route path="/login" element={<Login />} />

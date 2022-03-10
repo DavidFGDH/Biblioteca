@@ -55,7 +55,7 @@ export default function LibrosForm() {
 
         let config = {
             method: 'post',
-            url: 'http://localhost:3001/libros/crear',
+            url: 'http://74.208.33.241:81/libros/crear',
             headers: {
                 'Authorization': 'Bearer '+localStorage.getItem('UTSbiblioteca'),
                 'Content-Type': 'application/json'

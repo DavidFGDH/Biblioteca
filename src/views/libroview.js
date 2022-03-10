@@ -51,7 +51,7 @@ export default function FixedContainer() {
 
         let config = {
             method: 'delete',
-            url: 'http://localhost:3001/libros/libro',
+            url: 'http://74.208.33.241:81/libros/libro',
             headers: {
                 'Authorization': 'Bearer '+localStorage.getItem('UTSbiblioteca'),
                 'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ export default function FixedContainer() {
         const getLibroData =()=>{
             let config = {
                 method: 'get',
-                url: 'http://localhost:3001/libros/'+id,
+                url: 'http://74.208.33.241:81/libros/'+id,
                 headers: {
                     'Authorization': 'Bearer '+localStorage.getItem('UTSbiblioteca')
                 }
@@ -155,7 +155,7 @@ export default function FixedContainer() {
 
                     <Grid item xs={12}>
                         <Box display="flex" flexDirection="column" >
-                        <Document file={"http://localhost:3001/libros/pdf/"+id} onLoadSuccess={onDocumentLoadSuccess}>
+                        <Document file={"http://74.208.33.241:81/libros/pdf/"+id} onLoadSuccess={onDocumentLoadSuccess}>
                                 <Page
                                     pageNumber={pageNumber} />
                             </Document>

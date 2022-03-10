@@ -52,7 +52,7 @@ export default function SignUp() {
 
         let config = {
             method: 'post',
-            url: 'http://localhost:3001/usuarios/crear',
+            url: 'http://74.208.33.241:81/usuarios/crear',
             headers: {
                 'Content-Type': 'application/json'
             },
